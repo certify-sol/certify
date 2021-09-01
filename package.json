@@ -13,6 +13,7 @@
     "@solana/web3.js": "^1.24.1",
     "arweave": "^1.10.16",
     "deta": "^1.0.0",
+    "filereader": "^0.10.3",
     "next": "11.1.2",
     "react": "17.0.2",
     "react-dom": "17.0.2",
