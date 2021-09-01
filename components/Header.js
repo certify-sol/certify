@@ -53,7 +53,7 @@ const NavItem = styled.div`
   }
 `;
 
-const ConnectButton = styled.div`
+export const ConnectButton = styled.div`
   /* background-color: blue; */
   padding: 10px 30px;
   border-radius: 30px;
@@ -76,8 +76,8 @@ export default function Header() {
       <Logo src={'/images/certify-logo.png'} />
       <Navbar>
         {navItems.map((item) => (
-          <a href={item.href}>
-            <NavItem>{item.title}</NavItem>
+          <a href={item.href} key={item.title}>
+            <NavItem key={item.title}>{item.title}</NavItem>
           </a>
         ))}
         <a href="/create">

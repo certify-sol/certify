@@ -22,12 +22,12 @@ const Right = styled.div`
   /* background-color: green; */
 `;
 
-const BigT = styled.div`
+export const BigT = styled.div`
   font-size: 80px;
   font-weight: 700;
 `;
 
-const CertiT = styled.div`
+export const CertiT = styled.div`
   display: inline-block;
   background: -webkit-linear-gradient(95.58deg, #725bdc 0%, #dc5ba8 131.88%);
   background-clip: text;
