@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useRouter } from 'next/router';
 import styled from 'styled-components';
 
 import Header from '../components/Header';
@@ -38,11 +39,13 @@ const SigInput = styled.input`
 
 const VerifyButton = styled(ConnectButton)``;
 
-export default function CreatePage() {
+export default function VerifyPage() {
   const { register, handleSubmit } = useForm();
+  const router = useRouter();
 
   const onSubmit = (data) => {
     console.log(data);
+    router.push('/view?sig=' + data.sig);
   };
 
   return (

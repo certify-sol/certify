@@ -13,7 +13,7 @@ const navItems = [
   },
   {
     title: 'Verify',
-    href: '/',
+    href: '/verify',
   },
 ];
 
