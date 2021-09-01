@@ -1,9 +1,11 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-const Header = styled.div`
-  
-`;
+import Header from '../components/Header';
 
 export default function Home() {
-  return <div>hi</div>;
+  return (
+    <>
+      <Header />
+    </>
+  );
 }
