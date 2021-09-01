@@ -80,7 +80,9 @@ export default function Header() {
             <NavItem>{item.title}</NavItem>
           </a>
         ))}
-        <ConnectButton>Connect</ConnectButton>
+        <a href="/create">
+          <ConnectButton>Connect</ConnectButton>
+        </a>
       </Navbar>
     </Container>
   );
