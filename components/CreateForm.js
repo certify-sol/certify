@@ -44,6 +44,7 @@ export default function CreateForm() {
   // const [result, setResult] = useState('');
   const onSubmit = (data) => {
     console.log(data);
+    console.log(JSON.stringify(data));
   };
 
   return (
@@ -55,7 +56,7 @@ export default function CreateForm() {
         <Input {...register('location')} placeholder="Place of unision" />
         <Input {...register('date')} placeholder="Date" />
         <Input {...register('officiant')} placeholder="Officiant" />
-        <Input {...register('Registrant')} placeholder="Registrant name" />
+        <Input {...register('registrant')} placeholder="Registrant name" />
         {/* <select {...register('category')}>
           <option value="">Select...</option>
           <option value="A">Category A</option>
