@@ -3,6 +3,8 @@ import styled from 'styled-components';
 // import certifyLogo from '../assets/images/Certify-logo.png';
 import { ConnectButton as RealConnectButton } from './ConnectButton';
 
+import { useGlobalState } from './layout';
+
 const navItems = [
   {
     title: 'Home',
@@ -11,6 +13,21 @@ const navItems = [
   {
     title: 'Features',
     href: '/',
+  },
+  {
+    title: 'Verify',
+    href: '/verify',
+  },
+];
+
+const walletConnectedNavItems = [
+  {
+    title: 'Home',
+    href: '/',
+  },
+  {
+    title: 'Dashboard',
+    href: '/dashboard',
   },
   {
     title: 'Verify',
@@ -36,7 +53,7 @@ const Logo = styled.img`
 `;
 
 const Navbar = styled.div`
-  width: 20%;
+  width: 400px;
   /* background-color: blue; */
   display: flex;
   justify-content: space-between;
@@ -71,12 +88,15 @@ export const ConnectButton = styled.div`
 `;
 
 export default function Header() {
+  const [walletConnected, setWalletConnected] =
+    useGlobalState('walletConnected');
+
   return (
     <Container>
       {/* <div>hi</div> */}
       <Logo src={'/images/certify-logo.png'} />
       <Navbar>
-        {navItems.map((item) => (
+        {(walletConnected ? walletConnectedNavItems : navItems).map((item) => (
           <a href={item.href} key={item.title}>
             <NavItem key={item.title}>{item.title}</NavItem>
           </a>

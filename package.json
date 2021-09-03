@@ -20,6 +20,7 @@
     "deta": "^1.0.0",
     "filereader": "^0.10.3",
     "less": "^3.13.1",
+    "lodash": "^4.17.21",
     "next": "11.1.2",
     "next-images": "^1.8.1",
     "next-plugin-antd": "^0.2.0",
@@ -27,6 +28,7 @@
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-hook-form": "^7.14.2",
+    "react-hooks-global-state": "^1.0.2",
     "styled-components": "^5.3.1"
   },
   "devDependencies": {

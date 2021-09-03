@@ -1,4 +1,6 @@
+import { useState } from 'react';
 import styled from 'styled-components';
+import { truncate } from 'lodash';
 
 import Wallet from '@project-serum/sol-wallet-adapter';
 import {
@@ -7,9 +9,8 @@ import {
   Transaction,
   clusterApiUrl,
 } from '@solana/web3.js';
-// import {useWallet} from '@saberhq/use-solana'
 
-const Container = styled.div``;
+import { useGlobalState } from '../components/layout';
 
 export const Button = styled.div`
   /* background-color: blue; */
@@ -27,18 +28,40 @@ export const Button = styled.div`
   }
 `;
 
+const ConnectedButton = styled(Button)``;
+
 export function ConnectButton() {
   // useWallet()
+  // const [walletConnected, setWalletConnected] = useState(false);
+  const [walletConnected, setWalletConnected] =
+    useGlobalState('walletConnected');
+  // const [publicKey, setPublicKey] = useState('');
+  const [publicKey, setPublicKey] = useGlobalState('publicKey');
+
   const handleClick = async () => {
-    let connection = new Connection(clusterApiUrl('devnet'));
+    let conn = new Connection(clusterApiUrl('devnet'));
     let providerUrl = 'https://www.sollet.io';
     let wallet = new Wallet(providerUrl);
-    wallet.on('connect', (publicKey) =>
-      console.log('Connected to ' + publicKey.toBase58())
-    );
-    wallet.on('disconnect', () => console.log('Disconnected'));
+
+    wallet.on('connect', (publicKey) => {
+      console.log('Connected to ' + publicKey.toBase58());
+      setWalletConnected(true);
+      setPublicKey(publicKey.toBase58());
+    });
+
+    wallet.on('disconnect', () => {
+      console.log('Disconnected');
+      setWalletConnected(false);
+    });
+
     await wallet.connect();
   };
 
-  return <Button onClick={() => handleClick()}>Connect me</Button>;
+  return walletConnected ? (
+    <Button onClick={() => console.log('disconnect here or something')}>
+      {truncate(publicKey, { length: 10 })}
+    </Button>
+  ) : (
+    <Button onClick={() => handleClick()}>Connect</Button>
+  );
 }
