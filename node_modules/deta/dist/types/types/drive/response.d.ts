@@ -1,0 +1,21 @@
+import { NullType } from '../basic';
+export declare type GetResponse = Blob | NullType;
+export declare type DeleteResponse = string;
+export interface DeleteManyResponse {
+    deleted: string[];
+    failed: {
+        [key: string]: string;
+    };
+}
+export interface ListResponse {
+    names: string[];
+    paging: {
+        size: number;
+        last: string;
+    };
+}
+export declare type PutResponse = string;
+export interface UploadResponse {
+    response?: any;
+    error?: Error;
+}

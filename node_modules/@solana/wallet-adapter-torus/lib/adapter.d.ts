@@ -1,0 +1,22 @@
+import { BaseSignerWalletAdapter } from '@solana/wallet-adapter-base';
+import { PublicKey, Transaction } from '@solana/web3.js';
+import { OpenLoginOptions } from '@toruslabs/openlogin';
+export interface TorusWalletAdapterConfig {
+    options: Partial<OpenLoginOptions> & Omit<OpenLoginOptions, 'network'>;
+}
+export declare class TorusWalletAdapter extends BaseSignerWalletAdapter {
+    private _options;
+    private _connecting;
+    private _openLogin;
+    private _keypair;
+    constructor(config: TorusWalletAdapterConfig);
+    get publicKey(): PublicKey | null;
+    get ready(): boolean;
+    get connecting(): boolean;
+    get connected(): boolean;
+    get autoApprove(): boolean;
+    connect(): Promise<void>;
+    disconnect(): Promise<void>;
+    signTransaction(transaction: Transaction): Promise<Transaction>;
+    signAllTransactions(transactions: Transaction[]): Promise<Transaction[]>;
+}
