@@ -25,10 +25,10 @@ const walletConnectedNavItems = [
     title: 'Home',
     href: '/',
   },
-  {
-    title: 'Dashboard',
-    href: '/dashboard',
-  },
+  // {
+  //   title: 'Dashboard',
+  //   href: '/dashboard',
+  // },
   {
     title: 'Create',
     href: '/create',
