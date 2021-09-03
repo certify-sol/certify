@@ -3,8 +3,7 @@ import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/router';
 import styled from 'styled-components';
 
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import Layout from '../components/layout';
 import { BigT, CertiT } from './index';
 import { ConnectButton } from '../components/Header';
 
@@ -49,8 +48,7 @@ export default function VerifyPage() {
   };
 
   return (
-    <>
-      <Header />
+    <Layout>
       <Box>
         <CreateBigT>
           Verify <CertiT>Certificate</CertiT>
@@ -58,7 +56,6 @@ export default function VerifyPage() {
         <SigInput {...register('sig')} placeholder="Certificate Signature" />
         <VerifyButton onClick={handleSubmit(onSubmit)}>Verify</VerifyButton>
       </Box>
-      <Footer />
-    </>
+    </Layout>
   );
 }

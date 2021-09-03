@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import Layout from '../components/layout';
 
 const MainContainer = styled.div`
   height: 60vh;
@@ -46,8 +45,7 @@ const LandingImg = styled.img`
 
 export default function Home() {
   return (
-    <>
-      <Header />
+    <Layout>
       <MainContainer>
         <Left>
           <BigT>
@@ -62,7 +60,6 @@ export default function Home() {
           <LandingImg src="/images/landing-img.png" />
         </Right>
       </MainContainer>
-      <Footer />
-    </>
+    </Layout>
   );
 }

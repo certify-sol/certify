@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 // import certifyLogo from '../assets/images/Certify-logo.png';
+import { ConnectButton as RealConnectButton } from './ConnectButton';
 
 const navItems = [
   {
@@ -80,9 +81,9 @@ export default function Header() {
             <NavItem key={item.title}>{item.title}</NavItem>
           </a>
         ))}
-        <a href="/create">
-          <ConnectButton>Connect</ConnectButton>
-        </a>
+        {/* <a href="/create"> */}
+        <RealConnectButton />
+        {/* </a> */}
       </Navbar>
     </Container>
   );
