@@ -19,6 +19,7 @@
     "arweave": "^1.10.16",
     "deta": "^1.0.0",
     "filereader": "^0.10.3",
+    "isomorphic-unfetch": "^3.1.0",
     "less": "^3.13.1",
     "lodash": "^4.17.21",
     "next": "11.1.2",
@@ -29,6 +30,7 @@
     "react-dom": "17.0.2",
     "react-hook-form": "^7.14.2",
     "react-hooks-global-state": "^1.0.2",
+    "react-toast-notifications": "^2.5.1",
     "styled-components": "^5.3.1"
   },
   "devDependencies": {

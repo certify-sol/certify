@@ -11,8 +11,8 @@ const navItems = [
     href: '/',
   },
   {
-    title: 'Features',
-    href: '/',
+    title: 'Create',
+    href: '/create',
   },
   {
     title: 'Verify',
