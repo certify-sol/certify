@@ -5,7 +5,7 @@ import Layout from '../components/layout';
 export default function Dashboard() {
   return (
     <Layout>
-      <div>ok nice cool dash</div>
+      <div></div>
     </Layout>
   );
 }

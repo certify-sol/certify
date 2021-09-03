@@ -30,6 +30,10 @@ const walletConnectedNavItems = [
     href: '/dashboard',
   },
   {
+    title: 'Create',
+    href: '/create',
+  },
+  {
     title: 'Verify',
     href: '/verify',
   },
