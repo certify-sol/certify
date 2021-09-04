@@ -18,6 +18,7 @@
     "antd": "^4.16.13",
     "arweave": "^1.10.16",
     "deta": "^1.0.0",
+    "dotenv": "^10.0.0",
     "filereader": "^0.10.3",
     "isomorphic-unfetch": "^3.1.0",
     "less": "^3.13.1",
