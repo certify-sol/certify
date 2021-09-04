@@ -53,7 +53,11 @@ export default function VerifyPage() {
         <CreateBigT>
           Verify <CertiT>Certificate</CertiT>
         </CreateBigT>
-        <SigInput {...register('sig')} placeholder="Certificate Signature" />
+        <SigInput
+          {...register('sig')}
+          placeholder="Certificate Signature"
+          autoComplete="off"
+        />
         <VerifyButton onClick={handleSubmit(onSubmit)}>Verify</VerifyButton>
       </Box>
     </Layout>
