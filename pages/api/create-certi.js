@@ -21,7 +21,7 @@ async function createCertiHandler(req, res) {
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ ...req.body, sig: rootURL + '/view?sig=' + sig }),
+    body: JSON.stringify({ ...req.body, sig }),
   });
   const certiB64img = await pillowResp.text();
   console.log(certiB64img);
