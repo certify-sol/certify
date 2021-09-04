@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 // import certifyLogo from '../assets/images/Certify-logo.png';
 import { ConnectButton as RealConnectButton } from './ConnectButton';
@@ -6,10 +8,6 @@ import { ConnectButton as RealConnectButton } from './ConnectButton';
 import { useGlobalState } from './layout';
 
 const navItems = [
-  {
-    title: 'Home',
-    href: '/',
-  },
   {
     title: 'Create',
     href: '/create',
@@ -22,13 +20,9 @@ const navItems = [
 
 const walletConnectedNavItems = [
   {
-    title: 'Home',
-    href: '/',
+    title: 'Dashboard',
+    href: '/dashboard',
   },
-  // {
-  //   title: 'Dashboard',
-  //   href: '/dashboard',
-  // },
   {
     title: 'Create',
     href: '/create',
@@ -54,14 +48,15 @@ const Container = styled.div`
 
 const Logo = styled.img`
   max-height: 130%;
+  cursor: pointer;
 `;
 
 const Navbar = styled.div`
-  width: 400px;
+  /* width: 400px; */
   /* background-color: blue; */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  /* display: flex; */
+  /* justify-content: space-between; */
+  /* align-items: center; */
 
   color: #fff;
   font-weight: 500;
@@ -69,6 +64,11 @@ const Navbar = styled.div`
 
 const NavItem = styled.div`
   /* margin-left: 25px; */
+  display: inline-block;
+  margin-left: 35px;
+
+  cursor: pointer;
+
   transition: all 0.3s ease-in;
   &:hover {
     transform: translateY(-1px);
@@ -94,16 +94,19 @@ export const ConnectButton = styled.div`
 export default function Header() {
   const [walletConnected, setWalletConnected] =
     useGlobalState('walletConnected');
+  const router = useRouter();
 
   return (
     <Container>
       {/* <div>hi</div> */}
-      <Logo src={'/images/certify-logo.png'} />
+      <Link href="/">
+        <Logo src={'/images/certify-logo.png'} />
+      </Link>
       <Navbar>
         {(walletConnected ? walletConnectedNavItems : navItems).map((item) => (
-          <a href={item.href} key={item.title}>
+          <Link href={item.href} key={item.title}>
             <NavItem key={item.title}>{item.title}</NavItem>
-          </a>
+          </Link>
         ))}
         {/* <a href="/create"> */}
         <RealConnectButton />

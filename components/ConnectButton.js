@@ -18,6 +18,9 @@ export const Button = styled.div`
   border-radius: 30px;
   position: relative;
 
+  display: inline-block;
+  margin-left: 35px;
+
   border: 2px solid #725bdc;
 
   cursor: pointer;
@@ -58,7 +61,7 @@ export function ConnectButton() {
   };
 
   return walletConnected ? (
-    <Button onClick={() => console.log('disconnect here or something')}>
+    <Button onClick={() => console.log('disconnect here')}>
       {truncate(publicKey, { length: 10 })}
     </Button>
   ) : (
