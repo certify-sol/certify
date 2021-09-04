@@ -1,9 +1,12 @@
 import styled from 'styled-components';
+
 import { useForm } from 'react-hook-form';
 import { useGlobalState } from '../components/layout';
 import { useToasts } from 'react-toast-notifications';
 import { useRouter } from 'next/router';
-import { ConnectButton } from './Header';
+import { useState } from 'react';
+
+import GridLoader from 'react-spinners/GridLoader';
 
 const Container = styled.div`
   /* margin: 0 auto; */
@@ -47,6 +50,8 @@ export default function CreateForm() {
   const [walletConnected, setWalletConnected] =
     useGlobalState('walletConnected');
 
+  const [loading, setLoading] = useState(false);
+
   const { addToast } = useToasts();
 
   const router = useRouter();
@@ -59,6 +64,8 @@ export default function CreateForm() {
         autoDismiss: true,
       });
     } else {
+      setLoading(true);
+
       data = { ...data, registrant: publicKey };
 
       console.log(data);
@@ -84,27 +91,35 @@ export default function CreateForm() {
     }
   };
 
-  return (
+  return loading ? (
+    <div>
+      <GridLoader color="#7828AA" size={20} />
+    </div>
+  ) : (
     <Container>
       <form onSubmit={handleSubmit(onSubmit)}>
-        {/* <Headers /> */}
-        <Input {...register('firstName')} placeholder="First name" />
-        <Input {...register('secondName')} placeholder="Second name" />
-        <Input {...register('location')} placeholder="Place of unision" />
-        <Input {...register('date')} placeholder="Date" />
-        <Input {...register('officiant')} placeholder="Officiant" />
-        {/* <Input {...register('registrant')} placeholder="Registrant name" /> */}
-        {/* <select {...register('category')}>
-          <option value="">Select...</option>
-          <option value="A">Category A</option>
-          <option value="B">Category B</option>
-        </select> */}
-
-        {/* <p>{result}</p> */}
+        <Input
+          {...register('firstName')}
+          placeholder="First name"
+          autoComplete="off"
+        />
+        <Input
+          {...register('secondName')}
+          placeholder="Second name"
+          autoComplete="off"
+        />
+        <Input
+          {...register('location')}
+          placeholder="Place of unision"
+          autoComplete="off"
+        />
+        <Input {...register('date')} placeholder="Date" autoComplete="off" />
+        <Input
+          {...register('officiant')}
+          placeholder="Officiant"
+          autoComplete="off"
+        />
         <SubmitButton type="submit" />
-        {/* <SubmitButton onClick={() => handleSubmit(onSubmit)}>
-          Submit
-        </SubmitButton> */}
       </form>
     </Container>
   );

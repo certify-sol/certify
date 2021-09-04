@@ -1,7 +1,9 @@
 import fetch from 'isomorphic-unfetch';
 
 import makeNFT from '../../lib/make-nft';
-import { db, drive } from '../../lib/db';
+import { db } from '../../lib/db';
+
+const rootURL = 'https://certify.someshkar.com';
 
 async function createCertiHandler(req, res) {
   if (req.method !== 'POST') {
@@ -14,16 +16,15 @@ async function createCertiHandler(req, res) {
   // const owner = 'sms';
   const sig = await makeNFT();
 
-  const pillowResp = await fetch('https://certify.someshkar.com/pillow', {
+  const pillowResp = await fetch(rootURL + '/pillow', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ ...req.body, sig }),
+    body: JSON.stringify({ ...req.body, sig: rootURL + '/view?sig=' + sig }),
   });
   const certiB64img = await pillowResp.text();
   console.log(certiB64img);
-  // const certiB64img = await pillowRespJSON()
 
   // TODO: Arweave
   // await drive.put(`${sig}.png`, {
