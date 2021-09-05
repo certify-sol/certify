@@ -10,7 +10,9 @@ const Container = styled.div`
   width: 100vw;
   height: 60vh;
   /* background: green; */
+
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 
@@ -19,7 +21,23 @@ const Container = styled.div`
 
 const CertiImg = styled.img`
   max-height: 100%;
+  border-radius: 15px;
+  border: 5px solid #e7e7e7;
   /* margin-left: 50px; */
+`;
+
+const DownloadButton = styled.div`
+  padding: 18px 20px;
+  margin-top: 20px;
+  border: 1px solid #e7e7e7;
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  transition: all 0.3s ease-in;
+  &:hover {
+    transform: translateY(-1px);
+  }
 `;
 
 export default function ViewPage({ query }) {
@@ -54,6 +72,7 @@ export default function ViewPage({ query }) {
       <Header />
       <Container>
         <CertiImg src={'data:image/png;base64,' + imageData} />
+        <DownloadButton>Download Certificate</DownloadButton>
       </Container>
       {/* <div>{query.sig}</div> */}
       <Footer />

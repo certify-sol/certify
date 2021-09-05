@@ -44,6 +44,20 @@ const SubmitButton = styled.input`
   }
 `;
 
+const ContentArea = styled.textarea`
+  all: unset;
+
+  display: block;
+  padding: 20px;
+
+  width: 92%;
+  height: 150px;
+
+  border-bottom: 2px solid #e5e5e5;
+
+  /* transform: translateX(20px); */
+`;
+
 export default function CreateForm() {
   const { register, handleSubmit } = useForm();
   const [publicKey, setPublicKey] = useGlobalState('publicKey');
@@ -69,7 +83,7 @@ export default function CreateForm() {
       data = { ...data, registrant: publicKey };
 
       console.log(data);
-      fetch('/api/create-certi', {
+      fetch('/api/create-custom-certi', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -99,25 +113,13 @@ export default function CreateForm() {
     <Container>
       <form onSubmit={handleSubmit(onSubmit)}>
         <Input
-          {...register('firstName')}
-          placeholder="First name"
+          {...register('heading')}
+          placeholder="Heading"
           autoComplete="off"
         />
-        <Input
-          {...register('secondName')}
-          placeholder="Second name"
-          autoComplete="off"
-        />
-        <Input
-          {...register('location')}
-          placeholder="Place of unision"
-          autoComplete="off"
-        />
-        <Input {...register('date')} placeholder="Date" autoComplete="off" />
-        <Input
-          {...register('officiant')}
-          placeholder="Officiant"
-          autoComplete="off"
+        <ContentArea
+          {...register('content')}
+          placeholder="Certificate content (up to 7 lines)"
         />
         <SubmitButton type="submit" />
       </form>

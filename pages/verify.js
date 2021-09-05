@@ -33,7 +33,7 @@ const SigInput = styled.input`
 
   width: 400px;
   padding: 14px 18px;
-  color: #f2f2f2;
+  /* color: #f2f2f2; */
 `;
 
 const VerifyButton = styled(ConnectButton)``;

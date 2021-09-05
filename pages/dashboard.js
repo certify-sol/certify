@@ -14,7 +14,7 @@ const Heading = styled.div`
 export default function Dashboard() {
   return (
     <Layout>
-      <Heading>Dashboard</Heading>
+      {/* <Heading>Dashboard</Heading> */}
       <DashGrid />
     </Layout>
   );

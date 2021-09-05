@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
-import Layout from '../components/layout';
+import Layout from '../../components/layout';
 
-import CreateForm from '../components/CreateForm';
-import { BigT, CertiT } from './index';
+import CreateCustomForm from '../../components/CreateCustomForm';
+import { BigT, CertiT } from '../index';
 
 const FormContainer = styled.div`
   width: 100vw;
@@ -22,9 +22,9 @@ const CreateT = styled(BigT)`
 export default function CreatePage() {
   return (
     <Layout>
-      <CreateT>Create certificate</CreateT>
+      <CreateT>Custom certificate</CreateT>
       <FormContainer>
-        <CreateForm />
+        <CreateCustomForm />
       </FormContainer>
     </Layout>
   );

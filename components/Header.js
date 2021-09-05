@@ -41,7 +41,8 @@ const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 0.1px solid rgba(229, 229, 229, 0.1);
+  /* border-bottom: 0.1px solid rgba(229, 229, 229, 0.1); */
+  border-bottom: 0.1px solid rgb(202 202 202);
 
   user-select: none;
 `;
@@ -58,7 +59,6 @@ const Navbar = styled.div`
   /* justify-content: space-between; */
   /* align-items: center; */
 
-  color: #fff;
   font-weight: 500;
 `;
 
@@ -100,7 +100,7 @@ export default function Header() {
     <Container>
       {/* <div>hi</div> */}
       <Link href="/">
-        <Logo src={'/images/certify-logo.png'} />
+        <Logo src={'/images/certify-logo-lightmode.png'} />
       </Link>
       <Navbar>
         {(walletConnected ? walletConnectedNavItems : navItems).map((item) => (

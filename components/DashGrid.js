@@ -3,18 +3,12 @@ import { useGlobalState } from './layout';
 import styled from 'styled-components';
 import Link from 'next/link';
 
-const dummyCertiImgs = [
-  {
-    sig: 'bwXRKNPQRjp2ENWYFBHtcSAFMrhk82GRp3EtstfnPG3HntumA1tPTKNqsru6rPQ5Ax83jYjyAP4weddQzQsckKq',
-    base64img: '',
-  },
-];
-
 const Container = styled.div`
-  width: 80vw;
-  margin: 0 auto;
+  width: 67vw;
+  margin: 20px auto;
 
   display: grid;
+  grid-gap: 20px;
   grid-template-columns: 1fr 1fr 1fr;
 `;
 
@@ -25,14 +19,27 @@ const CertiImgContainer = styled.div`
 
   cursor: pointer;
 
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+
   transition: all 0.3s ease-in;
   &:hover {
     transform: translateY(-1px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+      0 4px 6px -2px rgba(0, 0, 0, 0.05);
   }
 `;
 
 const CertiImg = styled.img`
   max-height: 240px;
+  border-radius: 10px;
+  /* border: 2px solid #e7e7e7; */
+
+  /* transition: all 0.3s ease-in;
+  &:hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+      0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  } */
 `;
 
 export default function DashGrid() {
