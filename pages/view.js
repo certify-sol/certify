@@ -5,6 +5,8 @@ import styled from 'styled-components';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
+import { useCopyToClipboard } from '../components/lib';
+
 const Container = styled.div`
   margin: 50px auto;
   width: 100vw;
@@ -40,11 +42,18 @@ const DownloadButton = styled.div`
   }
 `;
 
+const CopyButton = styled(DownloadButton)`
+  margin-left: 20px;
+`;
+
 export default function ViewPage({ query }) {
   // const router = useRouter();
   // console.log(router.query);
 
   const [imageData, setImageData] = useState('');
+  const [copied, copy] = useCopyToClipboard(
+    'https://certify.someshkar.com/view?sig=' + query.sig
+  );
 
   // const testSig =
   //   '4YMU6LyRfNPHt13YqjYqhAT8U7KJ1dX63xNx6xNqpqYRv5DjNvHBNbdTNWLm56EyZ7KoTVP3mFwLowKuFoeHKBYh';
@@ -55,7 +64,6 @@ export default function ViewPage({ query }) {
     fetch(
       '/api/fetch-certi?' +
         new URLSearchParams({
-          // sig: router.query.sig,
           sig: query.sig,
         })
     )
@@ -72,7 +80,10 @@ export default function ViewPage({ query }) {
       <Header />
       <Container>
         <CertiImg src={'data:image/png;base64,' + imageData} />
-        <DownloadButton>Download Certificate</DownloadButton>
+        <div style={{ display: 'flex' }}>
+          <DownloadButton>Download Certificate</DownloadButton>
+          <CopyButton onClick={copy}>Copy Permalink</CopyButton>
+        </div>
       </Container>
       {/* <div>{query.sig}</div> */}
       <Footer />

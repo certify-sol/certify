@@ -43,7 +43,12 @@ const H = styled.div`
   text-align: center;
   margin: 60px 0;
 
-  color: #6703a2;
+  /* color: #6703a2; */
+
+  background: -webkit-linear-gradient(95.58deg, #725bdc 0%, #dc5ba8 131.88%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 `;
 
 export default function CreateSelector() {
