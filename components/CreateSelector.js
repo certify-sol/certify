@@ -30,7 +30,8 @@ const Side = styled.div`
 
   cursor: pointer;
 
-  color: #616161;
+  /* color: #616161; */
+  color: #ffffff;
   /* &:hover {
     background-color: #e4e7ed;
   } */
